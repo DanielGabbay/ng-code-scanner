@@ -1,7 +1,5 @@
 # ng-code-scanner Workspace# NgCodeScannerWorkspace
 
-
-
 This workspace contains the **ng-code-scanner** Angular library and a demo application.This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
 
 
