@@ -1,6 +1,6 @@
 {
   "name": "ng-code-scanner",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Modern Angular library for barcode and QR code scanning with Signal-based state management",
   "keywords": [
     "angular",

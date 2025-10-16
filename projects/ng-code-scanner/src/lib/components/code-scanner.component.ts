@@ -189,4 +189,8 @@ export class CodeScannerComponent implements OnDestroy {
       });
     }
   }
+
+  protected async toggleTorch(): Promise<void> {
+    await this.scannerService.toggleTorch();
+  }
 }

@@ -139,7 +139,8 @@ export class ScannerComponent {
       Html5QrcodeSupportedFormats.EAN_13,
       Html5QrcodeSupportedFormats.CODE_128
     ],
-    showTorchButtonIfSupported: true
+    showTorchButtonIfSupported: true, // Show torch button on supported devices
+    aspectRatio: 1.0
   });
 
   onScanSuccess(result: ScanResult) {
@@ -249,6 +250,7 @@ export class FileScannerComponent {
 |-------|------|---------|-------------|
 | `config` | `ScannerConfig` | `{}` | Scanner configuration options |
 | `cameraId` | `string \| undefined` | `undefined` | Specific camera device ID |
+| `preferredFacingMode` | `'user' \| 'environment'` | `'environment'` | Preferred camera facing mode (front/back) |
 | `autoStart` | `boolean` | `false` | Start scanning automatically |
 | `showCameraSelection` | `boolean` | `true` | Show camera selection dropdown |
 | `showControls` | `boolean` | `true` | Show start/stop buttons |

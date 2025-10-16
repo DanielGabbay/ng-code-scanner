@@ -14,7 +14,29 @@
     </div>
   }
 
-  <div [id]="scannerId" class="ncs-scanner-view"></div>
+  <div class="ncs-scanner-wrapper">
+    <div [id]="scannerId" class="ncs-scanner-view"></div>
+
+    @if (config().showTorchButtonIfSupported && scannerService.isTorchAvailable()) {
+      <button
+        type="button"
+        class="ncs-torch-button"
+        [class.ncs-torch-on]="scannerService.isTorchOn()"
+        (click)="toggleTorch()"
+        title="{{ scannerService.isTorchOn() ? 'Turn off flashlight' : 'Turn on flashlight' }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          @if (scannerService.isTorchOn()) {
+            <!-- Flashlight ON icon -->
+            <path d="M6 2v6h0.01L6 8.01 10 12l-4 4 0.01.01H6V22h12v-5.99h-0.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"/>
+          } @else {
+            <!-- Flashlight OFF icon -->
+            <path d="M6 2v6h0.01L6 8.01 10 12l-4 4 0.01.01H6V22h12v-5.99h-0.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm-4-5l-4-4V4h8v3.5l-4 4z"/>
+            <path d="M2 4 L22 20" stroke="currentColor" stroke-width="2" opacity="0.7"/>
+          }
+        </svg>
+      </button>
+    }
+  </div>
 
   @if (showControls()) {
     <div class="ncs-controls">

@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-10-16
+
+### Added
+- **Torch/Flashlight Control**: Added support for toggling device flashlight on supported mobile devices
+  - New `showTorchButtonIfSupported` configuration option
+  - Floating torch button with smooth animations and visual feedback
+  - Automatic torch availability detection
+  - `isTorchAvailable()` and `isTorchOn()` signals in service
+  - `toggleTorch()` method in both component and service
+- **Camera Facing Mode Selection**: Added `preferredFacingMode` input to choose between front ('user') and back ('environment') camera
+  - Defaults to 'environment' (back camera) for mobile devices
+  - Useful for mobile applications to control which camera opens by default
+
+### Changed
+- Improved scanner DOM structure with separate wrapper for better positioning control
+- Enhanced CSS architecture for overlay elements (torch button, etc.)
+
+### Technical Details
+- Torch button uses `position: absolute` within a wrapper to prevent conflicts with html5-qrcode library
+- Torch availability is checked asynchronously after scanner initialization
+- Torch state is managed through signals for reactive updates
+
 ## [1.0.1] - 2025-10-16
 
 ### Changed
