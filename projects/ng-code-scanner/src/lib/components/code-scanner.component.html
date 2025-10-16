@@ -1,0 +1,58 @@
+<div class="ncs-scanner-container" [class]="customClass()">
+  @if (showCameraSelection() && scannerService.hasCameras()) {
+    <div class="ncs-camera-selection">
+      <label for="camera-select">Select Camera:</label>
+      <select
+        id="camera-select"
+        (change)="onCameraChange($event)"
+        [disabled]="isInitializing()">
+        <option value="">Default Camera</option>
+        @for (camera of scannerService.availableCameras(); track camera.id) {
+          <option [value]="camera.id">{{ camera.label }}</option>
+        }
+      </select>
+    </div>
+  }
+
+  <div [id]="scannerId" class="ncs-scanner-view"></div>
+
+  @if (showControls()) {
+    <div class="ncs-controls">
+      @if (!scannerService.isScanning() && !isInitializing()) {
+        <button
+          type="button"
+          class="ncs-btn ncs-btn-start"
+          (click)="startScanning()">
+          Start Scanner
+        </button>
+      }
+
+      @if (scannerService.isScanning()) {
+        <button
+          type="button"
+          class="ncs-btn ncs-btn-stop"
+          (click)="stopScanning()">
+          Stop Scanner
+        </button>
+      }
+
+      @if (isInitializing()) {
+        <div class="ncs-loading">
+          <span>Initializing scanner...</span>
+        </div>
+      }
+    </div>
+  }
+
+  @if (scannerService.error()) {
+    <div class="ncs-error">
+      <strong>Error:</strong> {{ scannerService.error() }}
+    </div>
+  }
+
+  @if (scannerService.lastScanResult()) {
+    <div class="ncs-last-result">
+      <strong>Last Scan:</strong> {{ scannerService.lastScanResult()?.decodedText }}
+    </div>
+  }
+</div>

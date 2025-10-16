@@ -1,0 +1,62 @@
+<div class="demo-container">
+  <header class="demo-header">
+    <h1>{{ title }}</h1>
+    <p>Modern Angular library for barcode and QR code scanning</p>
+  </header>
+
+  <main class="demo-main">
+    <section class="scanner-section">
+      <h2>Scanner</h2>
+      <ncs-code-scanner [config]="scannerConfig()"
+        [showCameraSelection]="true"
+        [showControls]="true"
+        [customClass]="'demo-scanner'"
+        (scanSuccess)="onScanSuccess($event)"
+        (scanError)="onScanError($event)"
+        (scanStarted)="onScanStarted()"
+        (scanStopped)="onScanStopped()" />
+    </section>
+
+    <section class="results-section">
+      <div class="results-header">
+        <h2>Scan Results</h2>
+        @if (scanResults().length > 0) {
+          <button class="clear-btn" (click)="clearResults()">
+            Clear Results
+          </button>
+        }
+      </div>
+
+      @if (scanResults().length === 0) {
+        <p class="no-results">No scans yet. Start the scanner to begin scanning codes.</p>
+      } @else {
+        <div class="results-list">
+          @for (result of scanResults(); track $index) {
+            <div class="result-item">
+              <div class="result-index">#{{ $index + 1 }}</div>
+              <div class="result-text">{{ result.decodedText }}</div>
+            </div>
+          }
+        </div>
+      }
+    </section>
+
+    <section class="info-section">
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>✅ Modern Angular 20+ with Signals</li>
+        <li>✅ Standalone Components</li>
+        <li>✅ Multiple Barcode Formats</li>
+        <li>✅ Camera Selection</li>
+        <li>✅ File Scanning Support</li>
+        <li>✅ TypeScript Support</li>
+        <li>✅ Customizable Configuration</li>
+        <li>✅ Responsive Design</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="demo-footer">
+    <p>Built with ❤️ using Angular and html5-qrcode</p>
+  </footer>
+</div>

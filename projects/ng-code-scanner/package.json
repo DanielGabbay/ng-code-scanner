@@ -1,0 +1,33 @@
+{
+  "name": "ng-code-scanner",
+  "version": "1.0.0",
+  "description": "Modern Angular library for barcode and QR code scanning with Signal-based state management",
+  "keywords": [
+    "angular",
+    "qr-code",
+    "barcode",
+    "scanner",
+    "html5-qrcode",
+    "qr-scanner",
+    "barcode-scanner",
+    "angular-library",
+    "signals",
+    "standalone"
+  ],
+  "author": "Daniel Gabbay",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanielGabbay/ng-code-scanner.git"
+  },
+  "homepage": "https://github.com/DanielGabbay/ng-code-scanner#readme",
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "html5-qrcode": "^2.3.8"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
