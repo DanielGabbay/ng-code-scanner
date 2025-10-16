@@ -310,6 +310,38 @@ The component comes with default styles that can be customized:
 }
 ```
 
+### Container Sizing
+
+The scanner component is designed to fit exactly to the width and height of its parent container without overflow. To ensure proper sizing:
+
+```html
+<!-- Define a container with specific dimensions -->
+<div style="width: 500px; height: 400px;">
+  <ncs-code-scanner [autoStart]="true"></ncs-code-scanner>
+</div>
+```
+
+Or with CSS:
+
+```css
+.scanner-wrapper {
+  width: 100%;
+  height: 500px; /* Or use vh units: height: 80vh; */
+}
+```
+
+```html
+<div class="scanner-wrapper">
+  <ncs-code-scanner [autoStart]="true"></ncs-code-scanner>
+</div>
+```
+
+**Important Notes:**
+- The parent container must have an explicit height defined
+- The component will automatically adapt to fill 100% of the parent's width and height
+- Video will use `object-fit: contain` to maintain aspect ratio without distortion
+- All content (camera selector, controls, error messages) will fit within the container without overflow
+
 ## Browser Support
 
 - Chrome/Edge (latest)

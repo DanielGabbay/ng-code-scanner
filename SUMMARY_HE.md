@@ -291,6 +291,38 @@ export class FileScannerComponent {
 }
 ```
 
+### התאמה לגודל הקונטיינר
+
+הקומפוננטה מותאמת אוטומטית לרוחב ולגובה של הקונטיינר שבו היא מוגדרת, ללא overflow:
+
+```html
+<!-- הגדרת קונטיינר עם מידות ספציפיות -->
+<div style="width: 500px; height: 400px;">
+  <ncs-code-scanner [autoStart]="true"></ncs-code-scanner>
+</div>
+```
+
+או עם CSS:
+
+```css
+.scanner-wrapper {
+  width: 100%;
+  height: 500px; /* או יחידות vh: height: 80vh; */
+}
+```
+
+```html
+<div class="scanner-wrapper">
+  <ncs-code-scanner [autoStart]="true"></ncs-code-scanner>
+</div>
+```
+
+**נקודות חשובות:**
+- הקונטיינר האב חייב להיות עם גובה מוגדר מפורשות
+- הקומפוננטה תתאים אוטומטית ל-100% מהרוחב והגובה של האב
+- הווידאו משתמש ב-`object-fit: contain` לשמירה על יחס הגובה-רוחב ללא עיוות
+- כל התוכן (בורר מצלמה, כפתורי שליטה, הודעות שגיאה) יתאים בתוך הקונטיינר ללא overflow
+
 ## 📚 תיעוד נוסף
 
 - **README.md** - תיעוד מפורט עם דוגמאות

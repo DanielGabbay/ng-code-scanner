@@ -56,9 +56,24 @@
   }
 }
 
+.scanner-section {
+  /* הגדרת גובה קבוע לסקשן הסורק */
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+
+  h2 {
+    flex-shrink: 0;
+  }
+}
+
 .demo-scanner {
+  /* הקונטיינר של הסורק תופס את כל המקום הנותר */
+  flex: 1;
   max-width: 600px;
   margin: 0 auto;
+  width: 100%;
+  min-height: 0; /* חשוב ל-flexbox */
 }
 
 .results-header {

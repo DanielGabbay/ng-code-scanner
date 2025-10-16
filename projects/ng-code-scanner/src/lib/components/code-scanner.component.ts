@@ -19,6 +19,7 @@ import { ScannerConfig, ScanResult, CameraDevice } from '../models/scanner-confi
  */
 @Component({
   selector: 'ncs-code-scanner',
+  standalone: true,
   templateUrl: './code-scanner.component.html',
   styleUrls: ['./code-scanner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
